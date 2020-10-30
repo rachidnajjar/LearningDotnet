@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternFactory", "Des
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloGtk", "HelloGtk\HelloGtk.csproj", "{AF826793-FBB6-48DD-BA10-BD6AF9477775}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloEasyConsole", "HelloEasyConsole\HelloEasyConsole.csproj", "{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{AF826793-FBB6-48DD-BA10-BD6AF9477775}.Release|x64.Build.0 = Release|Any CPU
 		{AF826793-FBB6-48DD-BA10-BD6AF9477775}.Release|x86.ActiveCfg = Release|Any CPU
 		{AF826793-FBB6-48DD-BA10-BD6AF9477775}.Release|x86.Build.0 = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|x64.Build.0 = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{F927EB70-6ABA-428F-8BA7-D592C2BCF3DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
