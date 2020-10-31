@@ -1,3 +1,9 @@
-dotnet add package CommandDotNet
+documentation :     https://commanddotnet.bilal-fazlani.com/
 
-usage : "dotnet run Add 12 5" ou "dotnet run Subtract 12 5"
+- ajouter le paquet nuget au projet :   dotnet add HelloCommandDotnet/HelloCommandDotnet.csproj package CommandDotNet
+
+usage : 
+dotnet run Add 12 5 ou dotnet run Subtract 12 5
+
+dotnet run -p HelloCommandDotnet/HelloCommandDotnet.csproj Add 12 5
+dotnet run -p HelloCommandDotnet/HelloCommandDotnet.csproj Subtract 12 5

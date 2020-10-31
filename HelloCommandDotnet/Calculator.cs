@@ -1,21 +1,21 @@
-using CommandDotNet;
-using System;
-
 namespace HelloCommandDotnet
 {
-    [Command(Description = "Performs mathematical calculations")]
     public class Calculator
     {
-        [Command(Description = "Adds two numbers")]
-        public void Add(int value1, int value2)
+        public static int Add(int a, int b)
         {
-            Console.WriteLine($"Answer:  {value1 + value2}");
+            return a + b;
         }
 
-        [Command(Description = "Subtracts two numbers")]
-        public void Subtract(int value1, int value2)
+        public static int Subtract(int a, int b)
         {
-            Console.WriteLine($"Answer:  {value1 - value2}");
+            return a - b;
         }
+
+        public static int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+
     }
 }

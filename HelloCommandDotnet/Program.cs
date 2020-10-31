@@ -7,7 +7,7 @@ namespace HelloCommandDotnet
     {
         static int Main(string[] args)
         {
-            return new AppRunner<Calculator>().Run(args);
+            return new AppRunner<CalculatorCommand>().Run(args);
         }
     }
 }
