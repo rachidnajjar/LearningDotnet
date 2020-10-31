@@ -1,0 +1,2 @@
+- Lister les test présent dans la solution :        dotnet test -t
+- Executer les test présents dans la solution :     dotnet test
