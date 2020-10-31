@@ -1,4 +1,5 @@
 ﻿using System;
+using Autofac;
 
 namespace HelloAutofac
 {
@@ -6,7 +7,11 @@ namespace HelloAutofac
     {
         static void Main(string[] args)
         {
-            var notifier = new ConsoleNotifier();
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<ConsoleNotifier>().As<INotifier>();
+            var container = containerBuilder.Build();
+            
+            var notifier = container.Resolve<INotifier>();
             var user = new User("Tim", notifier);
             user.ChangeName("Bob");
         }

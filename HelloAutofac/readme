@@ -3,3 +3,5 @@ L'injection de dépendance avec Autofac
 - création du projet :                              dotnet new console -n HelloAutofac
 - compilation du projet :                           dotnet build HelloAutofac/HelloAutofac.csproj
 - ajout du projet dans la solution :                dotnet sln add HelloAutofac/HelloAutofac.csproj
+- ajout du paquet Autofac au projet :               dotnet add HelloAutofac/HelloAutofac.csproj package Autofac
+- compilation du projet :                           dotnet build HelloAutofac/HelloAutofac.csproj
