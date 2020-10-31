@@ -1,0 +1,3 @@
+dotnet add package CommandDotNet
+
+usage : "dotnet run Add 12 5" ou "dotnet run Subtract 12 5"
