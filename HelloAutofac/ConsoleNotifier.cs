@@ -2,7 +2,7 @@ using System;
 
 namespace HelloAutofac
 {
-    public class ConsoleNotifier
+    public class ConsoleNotifier : INotifier
     {
         public void NotifyUsernameChanged(User user)
         {

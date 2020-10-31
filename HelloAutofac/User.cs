@@ -2,13 +2,13 @@ namespace HelloAutofac
 {
     public class User
     {
-        private ConsoleNotifier _notifier;
+        private INotifier _notifier;
 
 
-        public User(string name)
+        public User(string name, INotifier notifier)
         {
             this.Name = name;
-            _notifier = new ConsoleNotifier();
+            _notifier = notifier;
 
         }
 

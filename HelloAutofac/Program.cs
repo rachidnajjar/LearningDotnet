@@ -6,7 +6,8 @@ namespace HelloAutofac
     {
         static void Main(string[] args)
         {
-            var user = new User("Tim");
+            var notifier = new ConsoleNotifier();
+            var user = new User("Tim", notifier);
             user.ChangeName("Bob");
         }
     }
