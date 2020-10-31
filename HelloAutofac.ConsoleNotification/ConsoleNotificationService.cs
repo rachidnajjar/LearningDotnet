@@ -1,6 +1,8 @@
 using System;
+using HelloAutofac.Core;
+using HelloAutofac.Notification;
 
-namespace HelloAutofac
+namespace HelloAutofac.ConsoleNotification
 {
     public class ConsoleNotificationService : INotificationService
     {

@@ -1,4 +1,6 @@
-namespace HelloAutofac
+using HelloAutofac.Core;
+
+namespace HelloAutofac.Notification
 {
     public interface INotificationService
     {

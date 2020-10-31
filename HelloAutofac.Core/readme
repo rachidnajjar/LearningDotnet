@@ -1,0 +1,3 @@
+- création du projet :                  dotnet new classlib -n HelloAutofac.Core
+- compilation du projet :               dotnet build HelloAutofac.Core/HelloAutofac.Core.csproj
+- ajout du projet dans la solution :    dotnet sln add HelloAutofac.Core/HelloAutofac.Core.csproj

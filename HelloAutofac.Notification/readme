@@ -1,0 +1,4 @@
+- création du projet :                          dotnet new classlib -n HelloAutofac.Notification
+- compilation du projet :                       dotnet build HelloAutofac.Notification/HelloAutofac.Notification.csproj
+- ajout du projet dans la solution :            dotnet sln add HelloAutofac.Notification/HelloAutofac.Notification.csproj
+- ajout d'une référence à HelloAutofac.Core :   dotnet add HelloAutofac.Notification/HelloAutofac.Notification.csproj reference HelloAutofac.Core/HelloAutofac.Core.csproj

@@ -9,4 +9,10 @@
     <PackageReference Include="Autofac" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HelloAutofac.Core\HelloAutofac.Core.csproj" />
+    <ProjectReference Include="..\HelloAutofac.Notification\HelloAutofac.Notification.csproj" />
+    <ProjectReference Include="..\HelloAutofac.ConsoleNotification\HelloAutofac.ConsoleNotification.csproj" />
+  </ItemGroup>
+
 </Project>

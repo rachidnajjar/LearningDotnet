@@ -1,5 +1,7 @@
 ﻿using System;
 using Autofac;
+using HelloAutofac.Core;
+using HelloAutofac.Notification;
 
 namespace HelloAutofac
 {
@@ -9,6 +11,7 @@ namespace HelloAutofac
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterModule<ProgramModule>();
+            containerBuilder.RegisterModule<NotificationModule>();
             var container = containerBuilder.Build();
             
             var notifier = container.Resolve<INotificationService>();

@@ -1,4 +1,4 @@
-namespace HelloAutofac
+namespace HelloAutofac.Core
 {
     public class User
     {

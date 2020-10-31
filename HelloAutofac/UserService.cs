@@ -1,3 +1,6 @@
+using HelloAutofac.Core;
+using HelloAutofac.Notification;
+
 namespace HelloAutofac
 {
     public class UserService
