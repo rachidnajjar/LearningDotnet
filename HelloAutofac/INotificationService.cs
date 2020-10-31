@@ -1,6 +1,6 @@
 namespace HelloAutofac
 {
-    public interface INotifier
+    public interface INotificationService
     {
          void NotifyUsernameChanged(User user);
     }

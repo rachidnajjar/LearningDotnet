@@ -8,12 +8,15 @@ namespace HelloAutofac
         static void Main(string[] args)
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<ConsoleNotifier>().As<INotifier>();
+            containerBuilder.RegisterType<ConsoleNotificationService>().As<INotificationService>();
+            containerBuilder.RegisterType<UserService>().AsSelf();
             var container = containerBuilder.Build();
             
-            var notifier = container.Resolve<INotifier>();
-            var user = new User("Tim", notifier);
-            user.ChangeName("Bob");
+            var notifier = container.Resolve<INotificationService>();
+            var userService = container.Resolve<UserService>();
+
+            var user = new User("Tim");
+            userService.ChangeUserName(user, "Bob");
         }
     }
 }
