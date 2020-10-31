@@ -1,2 +1,6 @@
-- Lister les test présent dans la solution :        dotnet test -t
-- Executer les test présents dans la solution :     dotnet test
+- créer le projet de test unitaires :                       dotnet new mstest -n HelloConsole.Test
+- ajouter une reférence au projet à tester :                dotnet add HelloConsole.Test/HelloConsole.Test.csproj reference HelloConsole/HelloConsole.csproj
+- ajouter le projet de test unitaires dans la solution :    dotnet sln add HelloConsole.Test/HelloConsole.Test.csproj
+- compiler la solution :                                    dotnet build
+- Lister les test présent dans la solution :                dotnet test -t
+- Executer les test présents dans la solution :             dotnet test
