@@ -5,3 +5,6 @@ L'injection de dépendance avec Autofac
 - ajout du projet dans la solution :                dotnet sln add HelloAutofac/HelloAutofac.csproj
 - ajout du paquet Autofac au projet :               dotnet add HelloAutofac/HelloAutofac.csproj package Autofac
 - compilation du projet :                           dotnet build HelloAutofac/HelloAutofac.csproj
+
+- il n'y a plus de référence aux projet ConsoleNotification et FancyNotification
+- il suffit maintenant de copier l'une ou l'autre des assembly dans le bin/debug
