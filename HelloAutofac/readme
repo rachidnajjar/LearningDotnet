@@ -1,0 +1,5 @@
+L'injection de dépendance avec Autofac
+
+- création du projet :                              dotnet new console -n HelloAutofac
+- compilation du projet :                           dotnet build HelloAutofac/HelloAutofac.csproj
+- ajout du projet dans la solution :                dotnet sln add HelloAutofac/HelloAutofac.csproj
