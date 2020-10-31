@@ -8,8 +8,7 @@ namespace HelloAutofac
         static void Main(string[] args)
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<ConsoleNotificationService>().As<INotificationService>();
-            containerBuilder.RegisterType<UserService>().AsSelf();
+            containerBuilder.RegisterModule<ProgramModule>();
             var container = containerBuilder.Build();
             
             var notifier = container.Resolve<INotificationService>();
