@@ -13,13 +13,19 @@ namespace HelloUnitTest.Test
             int n = 0;
             int expected = 0;
 
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
             //Act
-            var math = new Math();
-            Fibonacci fibonacci = new Fibonacci(math);
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
             int result = fibonacci.GetTerm(n);
 
             //Assert
             Assert.AreEqual(expected, result);
+            mockMath.Verify(r => r.Add(It.IsAny<int>(), It.IsAny<int>()), Times.Never);
         }
 
         [TestMethod]
@@ -29,13 +35,19 @@ namespace HelloUnitTest.Test
             int n = 1;
             int expected = 1;
 
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
             //Act
-            var math = new Math();
-            Fibonacci fibonacci = new Fibonacci(math);
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
             int result = fibonacci.GetTerm(n);
 
             //Assert
             Assert.AreEqual(expected, result);
+            mockMath.Verify(r => r.Add(It.IsAny<int>(), It.IsAny<int>()), Times.Never);
         }
 
         [TestMethod]
@@ -45,13 +57,19 @@ namespace HelloUnitTest.Test
             int n = 2;
             int expected = 1;
 
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
             //Act
-            var math = new Math();
-            Fibonacci fibonacci = new Fibonacci(math);
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
             int result = fibonacci.GetTerm(n);
 
             //Assert
             Assert.AreEqual(expected, result);
+            mockMath.Verify(r => r.Add(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }
 
         [TestMethod]
@@ -61,13 +79,19 @@ namespace HelloUnitTest.Test
             int n = 3;
             int expected = 2;
 
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
             //Act
-            var math = new Math();
-            Fibonacci fibonacci = new Fibonacci(math);
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
             int result = fibonacci.GetTerm(n);
 
             //Assert
             Assert.AreEqual(expected, result);
+            mockMath.Verify(r => r.Add(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(2));
         }
         [TestMethod]
         public void Fibonacci_GetTerm_Input4_AssertResult3()
