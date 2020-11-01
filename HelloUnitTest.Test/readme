@@ -13,3 +13,5 @@
 
 - Ajouter le paquet moq pour les test unitaires :           dotnet add HelloUnitTest.Test/HelloUnitTest.Test.csproj package moq
 - Supprimer le paquet moq pour les test unitaires :         dotnet remove HelloUnitTest.Test/HelloUnitTest.Test.csproj package moq
+
+- Pour un cas plus réaliste voir https://dontpaniclabs.com/blog/post/2020/06/30/saving-time-with-the-datatestmethod-attribute/
