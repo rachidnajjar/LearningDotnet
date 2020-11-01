@@ -1,0 +1,15 @@
+- créer le projet à tester :                                dotnet new classlib -n HelloUnitTest
+- compiler le projet à tester :                             dotnet build HelloUnitTest/HelloUnitTest.csproj
+- ajouter le projet à tester dans la solution :             dotnet sln add HelloUnitTest/HelloUnitTest.csproj
+
+- créer le projet de test unitaires :                       dotnet new mstest -n HelloUnitTest.Test
+- ajouter une reférence au projet à tester :                dotnet add HelloUnitTest.Test/HelloUnitTest.Test.csproj reference HelloUnitTest/HelloUnitTest.csproj
+- ajouter le projet de test unitaires dans la solution :    dotnet sln add HelloUnitTest.Test/HelloUnitTest.Test.csproj
+
+
+- Lister les test présents dans le projet de test :         dotnet test -t HelloUnitTest.Test/HelloUnitTest.Test.csproj
+- Executer les test du projet de test unitaire :            dotnet test HelloUnitTest.Test/HelloUnitTest.Test.csproj
+
+
+- Ajouter le paquet nuget pour les test unitaires :         dotnet add HelloUnitTest.Test/HelloUnitTest.Test.csproj package ...
+- Supprimer le paquet nuget pour les test unitaires :       dotnet remove HelloUnitTest.Test/HelloUnitTest.Test.csproj package ...
