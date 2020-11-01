@@ -11,5 +11,5 @@
 - Executer les test du projet de test unitaire :            dotnet test HelloUnitTest.Test/HelloUnitTest.Test.csproj
 
 
-- Ajouter le paquet nuget pour les test unitaires :         dotnet add HelloUnitTest.Test/HelloUnitTest.Test.csproj package ...
-- Supprimer le paquet nuget pour les test unitaires :       dotnet remove HelloUnitTest.Test/HelloUnitTest.Test.csproj package ...
+- Ajouter le paquet moq pour les test unitaires :           dotnet add HelloUnitTest.Test/HelloUnitTest.Test.csproj package moq
+- Supprimer le paquet moq pour les test unitaires :         dotnet remove HelloUnitTest.Test/HelloUnitTest.Test.csproj package moq

@@ -4,19 +4,35 @@ namespace HelloUnitTest
 {
     public class Fibonacci
     {
-        public int GetNthTerm(int n)
+        private IMath _math;
+        public Fibonacci(IMath math)
         {
-            Math math = new Math();
-            int nMinusTwoTerm = 1;
-            int nMinusOneTerm = 1;
-            int newTerm = 0;
-            for (int i = 2; i < n; i++)
+            _math = math;
+        }
+
+
+        public int GetTerm(int n)
+        {
+            int f0 = 0; // Terme 0
+            if (n == 0)
+                return f0;
+
+            int f1 = 1; // Terme 1
+            if (n == 1)
+                return f1;
+
+            // Calcule les termes suivants
+            int fnMoins2 = f0;
+            int fnMoins1 = f1;
+            int fn = 0;
+            for (int i = 2; i < n + 1; i++)
             {
-                newTerm = math.Add(nMinusOneTerm, nMinusTwoTerm);
-                nMinusTwoTerm = nMinusOneTerm;
-                nMinusOneTerm = newTerm;
+                fn = _math.Add(fnMoins1, fnMoins2);
+                fnMoins2 = fnMoins1;
+                fnMoins1 = fn;
             }
-            return newTerm;
+            return fn;
         }        
+
     }
 }
