@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace HelloUnitTest.Test
@@ -149,11 +150,7 @@ namespace HelloUnitTest.Test
         [DataRow(1,1)]
         [DataRow(2,1)]
         [DataRow(3,2)]
-        [DataRow(4,3)]
-        [DataRow(5,5)]
-        [DataRow(6,8)]
-        [DataRow(7,13)]
-        public void Fibonacci_GetTerm(int n, int expected)
+        public void Fibonacci_GetTerm_DataRow(int n, int expected)
         {
             //Arrange
             // Provided by DataRow
@@ -172,5 +169,63 @@ namespace HelloUnitTest.Test
             Assert.AreEqual(expected, result);
         }
 
+
+        [DataTestMethod]
+        [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
+        public void Fibonacci_GetTerm_DynamicData_Method(int n, int expected)
+        {
+            //Arrange
+            // Provided by DataRow
+
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
+            //Act
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
+            int result = fibonacci.GetTerm(n);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetData()
+        {
+            yield return new object[] { 4, 3 };
+            yield return new object[] { 5, 5 };
+            yield return new object[] { 6, 8 };
+        }
+
+        [DataTestMethod]
+        [DynamicData(nameof(Data), DynamicDataSourceType.Property)]
+        public void Fibonacci_GetTerm_DynamicData_Property(int n, int expected)
+        {
+            //Arrange
+            // Provided by DataRow
+
+            //Setup
+            Mock<IMath> mockMath = new Mock<IMath>();
+            mockMath
+                .Setup(r => r.Add(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns((int a, int b) => a + b);
+
+            //Act
+            Fibonacci fibonacci = new Fibonacci(mockMath.Object);
+            int result = fibonacci.GetTerm(n);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        public static IEnumerable<object[]> Data
+        {
+            get
+            {
+                yield return new object[] { 6, 8 };
+                yield return new object[] { 7, 13 };
+            }
+        }
     }
 }
