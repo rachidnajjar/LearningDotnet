@@ -153,11 +153,10 @@ namespace HelloUnitTest.Test
         [DataRow(5,5)]
         [DataRow(6,8)]
         [DataRow(7,13)]
-        public void Fibonacci_GetTerm(int inputValue, int resultValue)
+        public void Fibonacci_GetTerm(int n, int expected)
         {
             //Arrange
-            int n = inputValue;
-            int expected = resultValue;
+            // Provided by DataRow
 
             //Setup
             Mock<IMath> mockMath = new Mock<IMath>();
