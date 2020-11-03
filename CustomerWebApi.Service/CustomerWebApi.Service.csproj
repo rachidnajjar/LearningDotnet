@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerWebApi.Domain\CustomerWebApi.Domain.csproj" />
+    <ProjectReference Include="..\CustomerWebApi.Data\CustomerWebApi.Data.csproj" />
+    <ProjectReference Include="..\CustomerWebApi.Messaging.Send\CustomerWebApi.Messaging.Send.csproj" />
+  </ItemGroup>
+
+</Project>
