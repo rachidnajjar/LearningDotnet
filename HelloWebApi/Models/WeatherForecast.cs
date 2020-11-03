@@ -1,6 +1,6 @@
 using System;
 
-namespace HelloWebApi
+namespace HelloWebApi.Models
 {
     public class WeatherForecast
     {

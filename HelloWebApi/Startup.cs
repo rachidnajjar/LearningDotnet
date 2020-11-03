@@ -27,6 +27,7 @@ namespace HelloWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TodoContext>(option => option.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<PersonneContext>(option => option.UseInMemoryDatabase("PersonneList"));
             services.AddControllers();
         }
 

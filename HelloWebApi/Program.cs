@@ -18,11 +18,6 @@ namespace HelloWebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                // .ConfigureAppConfiguration((hostingcontext, config) =>
-                // {
-                //     config.AddJsonFile("appsettings.json", false, true)
-                //         .AddJsonFile($"appsettings.{hostingcontext.HostingEnvironment.EnvironmentName}.json", true, true);
-                // })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
