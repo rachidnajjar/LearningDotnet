@@ -1,0 +1,31 @@
+- création du projet microservice sans https :          dotnet new webapi -n HelloWebApi --no-https
+- ajout du projet dans la solution :                    dotnet sln add HelloWebApi/HelloWebApi.csproj
+
+
+nuget :
+- Add NuGet packages required for EntityFramework
+dotnet add HelloWebApi/HelloWebApi.csproj package Microsoft.EntityFrameworkCore
+dotnet add HelloWebApi/HelloWebApi.csproj package Microsoft.EntityFrameworkCore.InMemory
+dotnet add HelloWebApi/HelloWebApi.csproj package Microsoft.EntityFrameworkCore.SqlServer
+
+- Add NuGet packages required for scaffolding
+dotnet add HelloWebApi/HelloWebApi.csproj package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add HelloWebApi/HelloWebApi.csproj package Microsoft.EntityFrameworkCore.Design
+
+- Installs the scaffolding engine (dotnet-aspnet-codegenerator).
+dotnet tool install --global dotnet-aspnet-codegenerator
+dotnet tool update --global dotnet-aspnet-codegenerator // Pour mise à jour de l'outil
+dotnet tool uninstall --global dotnet-aspnet-codegenerator
+dotnet tool install --global dotnet-aspnet-codegenerator --version 3.1.3
+
+- Scaffolds the TodoItemsController
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+>> le scaffolding ne fonctonne pas ! J'ai finalement créer le controller à la main
+
+references :
+https://dotnet.microsoft.com/learn/aspnet/microservice-tutorial/intro
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio-code
+
+https://www.programmingwithwolfgang.com/microservices-getting-started/
+https://www.programmingwithwolfgang.com/programming-microservices-net-core-3-1/
+https://github.com/WolfgangOfner/MicroserviceDemo
