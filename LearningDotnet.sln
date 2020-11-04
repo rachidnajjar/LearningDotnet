@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApi", "CustomerW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateHelloWorld", "DelegateHelloWorld\DelegateHelloWorld.csproj", "{D117A56A-AA78-4594-9FFF-E4F38660ADE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaHelloWorld", "LambdaHelloWorld\LambdaHelloWorld.csproj", "{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -310,5 +312,17 @@ Global
 		{D117A56A-AA78-4594-9FFF-E4F38660ADE0}.Release|x64.Build.0 = Release|Any CPU
 		{D117A56A-AA78-4594-9FFF-E4F38660ADE0}.Release|x86.ActiveCfg = Release|Any CPU
 		{D117A56A-AA78-4594-9FFF-E4F38660ADE0}.Release|x86.Build.0 = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|x64.Build.0 = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{FDBCADF6-CBE3-44E8-B7FC-BDE81FE051DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
