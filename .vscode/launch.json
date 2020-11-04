@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/HelloAutofac/bin/Debug/netcoreapp3.1/HelloAutofac.dll",
+            "program": "${workspaceFolder}/YieldHelloWorld/bin/Debug/netcoreapp3.1/YieldHelloWorld.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/HelloAutofac",
+            "cwd": "${workspaceFolder}/YieldHelloWorld",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
