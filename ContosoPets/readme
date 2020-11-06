@@ -1,0 +1,20 @@
+Create a web API with ASP.NET Core
+https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/
+
+dotnet new webapi -o ContosoPets.Api
+
+dotnet ./bin/Debug/netcoreapp3.1/ContosoPets.Api.dll > ContosoPets.Api.log &
+sudo apt-get install jq                                                         >> installer jq
+curl -k -s https://localhost:5001/weatherforecast | jq                          >> faire une requête get
+kill $(pidof dotnet)                                                            >> arrêter l'application
+
+
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+
+
+Pour tester la webapi :
+http get :      curl -k -s https://localhost:5001/products | jq
+http post :     curl -i -k -H "Content-Type: application/json" -d "{\"name\":\"Plush Squirrel\",\"price\":0.00}" https://localhost:5001/products
+http post :     curl -i -k -H "Content-Type: application/json" -d "{\"name\":\"Plush Squirrel\",\"price\":1.99}" https://localhost:5001/products
+http put :      curl -i -k -X PUT -H "Content-Type: application/json" -d "{\"id\":2,\"name\":\"Knotted Rope\",\"price\":14.99}" https://localhost:5001/products/2
+http delete :   curl -i -k -X DELETE https://localhost:5001/products/1
