@@ -1,0 +1,10 @@
+The Model View Presenter pattern in C# – a minimalist implementation
+https://www.technical-recipes.com/2015/the-model-view-presenter-pattern-in-c-a-minimalist-implementation/
+
+To create a new gtk app project, simply use dotnet new templating engine:
+dotnet new --install GtkSharp.Template.CSharp
+dotnet new --uninstall GtkSharp.Template.CSharp
+
+dotnet new gtkapp -o ModelViewPresenter
+dotnet build
+dotnet run
