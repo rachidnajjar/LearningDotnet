@@ -17,11 +17,22 @@ namespace PersonManager.Services
             _repository.Create(person);
         }
 
+
         public Person Retrieve(int id)
         {
             Person person = _repository.Retrieve(id);
             return person;
         }
-        
+
+        public void Update(Person person)
+        {
+            _repository.Update(person);
+        }
+
+        public void Delete(int id)
+        {
+            _repository.Delete(id);
+        }
+
     }
 }

@@ -7,16 +7,12 @@ using UI = Gtk.Builder.ObjectAttribute;
 
 namespace PersonManager
 {
-    class PersonRetrieveWindow : Window, IPersonView
+    class PersonDeleteWindow : Window, IPersonView
     {
-        [UI]
-        private Entry _entryId = null;
-        [UI]
-        private Label _labelPersonId = null;
-        [UI]
-        private Label _labelPersonName = null;
-        [UI]
-        private Button _buttonRetrievePerson = null;
+        [UI] private Entry _entryId = null;
+        [UI] private Label _labelPersonId = null;
+        [UI] private Label _labelPersonName = null;
+        [UI] private Button _buttonDeletePerson = null;
 
         public string IdText 
         { 
@@ -31,14 +27,14 @@ namespace PersonManager
         }
 
 
-        public PersonRetrieveWindow() : this(new Builder("PersonRetrieveWindow.glade")) { }
+        public PersonDeleteWindow() : this(new Builder("PersonDeleteWindow.glade")) { }
 
-        private PersonRetrieveWindow(Builder builder) : base(builder.GetObject("PersonRetrieveWindow").Handle)
+        private PersonDeleteWindow(Builder builder) : base(builder.GetObject("PersonDeleteWindow").Handle)
         {
             builder.Autoconnect(this);
 
             DeleteEvent += Window_DeleteEvent;
-            _buttonRetrievePerson.Clicked += ButtonRetrievePerson_Clicked;
+            _buttonDeletePerson.Clicked += ButtonDeletePerson_Clicked;
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -46,11 +42,11 @@ namespace PersonManager
             this.Hide();
         }
 
-        private void ButtonRetrievePerson_Clicked(object sender, EventArgs a)
+        private void ButtonDeletePerson_Clicked(object sender, EventArgs a)
         {
             int id = int.Parse(_entryId.Text);
             PersonPresenter presenter = new PersonPresenter(this);
-            presenter.RetrievePerson(id);
+            presenter.DeletePerson(id);
         }
     }
 }

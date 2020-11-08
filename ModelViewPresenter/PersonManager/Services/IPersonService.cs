@@ -4,7 +4,10 @@ namespace PersonManager.Services
 {
     public interface IPersonService
     {
-        Person Retrieve(int id);
         void Create(Person person);
+        Person Retrieve(int id);
+        void Update(Person person);
+        void Delete(int id);
+
     }
 }

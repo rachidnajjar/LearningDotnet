@@ -8,14 +8,14 @@ using PersonManager.Models;
 
 namespace PersonManager
 {
-    class PersonCreateWindow : Window, IPersonView
+    class PersonUpdateWindow : Window, IPersonView
     {
         [UI]
         private Entry _entryId = null;
         [UI]
         private Entry _entryName = null;
         [UI]
-        private Button _buttonCreatePerson = null;
+        private Button _buttonUpdatePerson = null;
 
         public string IdText 
         { 
@@ -30,14 +30,14 @@ namespace PersonManager
         }
 
 
-        public PersonCreateWindow() : this(new Builder("PersonCreateWindow.glade")) { }
+        public PersonUpdateWindow() : this(new Builder("PersonUpdateWindow.glade")) { }
 
-        private PersonCreateWindow(Builder builder) : base(builder.GetObject("PersonCreateWindow").Handle)
+        private PersonUpdateWindow(Builder builder) : base(builder.GetObject("PersonUpdateWindow").Handle)
         {
             builder.Autoconnect(this);
 
             DeleteEvent += Window_DeleteEvent;
-            _buttonCreatePerson.Clicked += ButtonCreatePerson_Clicked;
+            _buttonUpdatePerson.Clicked += ButtonUpdatePerson_Clicked;
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -45,14 +45,14 @@ namespace PersonManager
             this.Hide();
         }
 
-        private void ButtonCreatePerson_Clicked(object sender, EventArgs a)
+        private void ButtonUpdatePerson_Clicked(object sender, EventArgs a)
         {
             Person person = new Person();
             person.Id = int.Parse(_entryId.Text);
             person.Name = _entryName.Text;
 
             PersonPresenter presenter = new PersonPresenter(this);
-            presenter.CreatePerson(person);
+            presenter.UpdatePerson(person);
         }
     }
 }

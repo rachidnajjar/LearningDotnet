@@ -30,8 +30,18 @@ namespace PersonManager.Presenters
             var repository = new PersonRepository();
             var service = new PersonService(repository);
             Person person = service.Retrieve(id);
-            _view.IdText = person.Id.ToString();
-            _view.NameText = person.Name;
+
+            if (person == null)
+            {
+                _view.IdText = "-1";
+                _view.NameText = "not found";
+            }
+            else
+            {
+                _view.IdText = person.Id.ToString();
+                _view.NameText = person.Name;
+            }
+
         }
 
         public void CreatePerson(Person person)
@@ -39,6 +49,20 @@ namespace PersonManager.Presenters
             var repository = new PersonRepository();
             var service = new PersonService(repository);
             service.Create(person);
+        }
+
+        public void UpdatePerson(Person person)
+        {
+            var repository = new PersonRepository();
+            var service = new PersonService(repository);
+            service.Update(person);
+        }
+
+        public void DeletePerson(int id)
+        {
+            var repository = new PersonRepository();
+            var service = new PersonService(repository);
+            service.Delete(id);
         }
 
     }

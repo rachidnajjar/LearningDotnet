@@ -6,5 +6,8 @@ namespace PersonManager.Repositories
     {
         void Create(Person person);
         Person Retrieve(int id);
+        void Update(Person person);
+        void Delete(int id);
+
     }
 }
