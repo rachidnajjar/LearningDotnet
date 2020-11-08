@@ -1,0 +1,6 @@
+Raise and Consume Events
+https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events
+
+This example shows how to raise and consume an event that provides data. 
+The EventHandler<TEventArgs> delegate is associated with the event, 
+and an instance of a custom event data object is provided.

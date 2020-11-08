@@ -1,0 +1,7 @@
+Raise and Consume Events
+https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events
+
+The first example shows how to raise and consume an event that doesn't have data. 
+It contains a class named Counter that has an event named ThresholdReached. 
+This event is raised when a counter value equals or exceeds a threshold value. 
+The EventHandler delegate is associated with the event, because no event data is provided.
