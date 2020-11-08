@@ -39,6 +39,7 @@
               <object class="GtkEntry" id="_entryLength">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="halign">end</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -73,6 +74,7 @@
               <object class="GtkEntry" id="_entryBreadth">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="halign">end</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -120,6 +122,7 @@
               <object class="GtkEntry" id="_entryArea">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="halign">end</property>
                 <property name="editable">False</property>
               </object>
               <packing>
