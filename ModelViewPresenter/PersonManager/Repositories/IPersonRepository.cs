@@ -1,13 +1,13 @@
+using System.Collections.Generic;
 using PersonManager.Models;
 
 namespace PersonManager.Repositories
 {
     public interface IPersonRepository
     {
-        void Create(Person person);
+        void Save(Person person);
         Person Retrieve(int id);
-        void Update(Person person);
         void Delete(int id);
-
+        List<Person> Retrieve();
     }
 }

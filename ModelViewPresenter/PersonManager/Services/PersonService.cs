@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PersonManager.Models;
 using PersonManager.Repositories;
 
@@ -12,9 +13,9 @@ namespace PersonManager.Services
             _repository = repository;
         }
 
-        public void Create(Person person)
+        public void Save(Person person)
         {
-            _repository.Create(person);
+            _repository.Save(person);
         }
 
 
@@ -24,15 +25,14 @@ namespace PersonManager.Services
             return person;
         }
 
-        public void Update(Person person)
-        {
-            _repository.Update(person);
-        }
-
         public void Delete(int id)
         {
             _repository.Delete(id);
         }
 
+        public List<Person> Retrieve()
+        {
+            return _repository.Retrieve();
+        }
     }
 }

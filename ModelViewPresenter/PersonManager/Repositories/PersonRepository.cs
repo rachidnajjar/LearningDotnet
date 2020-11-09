@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using PersonManager.Data;
 using PersonManager.Models;
@@ -6,7 +7,19 @@ namespace PersonManager.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        public void Create(Person person)
+        public void Save(Person person)
+        {
+            if (Exists(person.Id))
+            {
+                Update(person);
+            }
+            else
+            {
+                Create(person);
+            }
+        }
+
+        private void Create(Person person)
         {
             using (var db = new PersonManagerContext())
             {
@@ -30,7 +43,7 @@ namespace PersonManager.Repositories
             return person;
         }
 
-        public void Update(Person person)
+        private void Update(Person person)
         {
             using (var db = new PersonManagerContext())
             {
@@ -65,5 +78,17 @@ namespace PersonManager.Repositories
             return (person == null ? false : true);
         }
 
+        public List<Person> Retrieve()
+        {
+            List<Person> persons;
+
+            using (var db = new PersonManagerContext())
+            {
+                // Read
+                persons = db.Persons.ToList<Person>();
+            }
+
+            return persons;
+        }
     }
 }

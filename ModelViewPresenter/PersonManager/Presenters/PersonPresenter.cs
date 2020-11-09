@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PersonManager.Models;
 using PersonManager.Repositories;
 using PersonManager.Services;
@@ -15,17 +16,7 @@ namespace PersonManager.Presenters
             _view = view;
         }
 
-        // public void CalculateArea()
-        // {
-        //     Personne personne = new Personne();
-        //     Personne.Lenght = int.Parse(_view.LenghtText);
-        //     Personne.Breadth = int.Parse(_view.BreadthText);
-
-        //     var area = Personne.CalculateArea();
-        //     _view.AreaText = area.ToString();
-        // }
-
-        public void RetrievePerson(int id)
+        public void Retrieve(int id)
         {
             var repository = new PersonRepository();
             var service = new PersonService(repository);
@@ -44,25 +35,25 @@ namespace PersonManager.Presenters
 
         }
 
-        public void CreatePerson(Person person)
+        public void Save(Person person)
         {
             var repository = new PersonRepository();
             var service = new PersonService(repository);
-            service.Create(person);
+            service.Save(person);
         }
 
-        public void UpdatePerson(Person person)
-        {
-            var repository = new PersonRepository();
-            var service = new PersonService(repository);
-            service.Update(person);
-        }
-
-        public void DeletePerson(int id)
+        public void Delete(int id)
         {
             var repository = new PersonRepository();
             var service = new PersonService(repository);
             service.Delete(id);
+        }
+
+        public void Retrieve()
+        {
+            var repository = new PersonRepository();
+            var service = new PersonService(repository);
+            _view.Persons = service.Retrieve();
         }
 
     }

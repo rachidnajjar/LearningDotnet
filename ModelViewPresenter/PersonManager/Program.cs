@@ -15,9 +15,6 @@ namespace PersonManager
 
             var mainWindow = new MainWindow();
             app.AddWindow(mainWindow);
-            // var personRetrieveWindow = new PersonRetrieveWindow();
-            // app.AddWindow(personRetrieveWindow);
-            // var win = new PersonCreateWindow();
 
             mainWindow.Show();
             Application.Run();

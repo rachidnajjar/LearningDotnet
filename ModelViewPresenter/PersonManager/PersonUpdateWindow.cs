@@ -5,6 +5,7 @@ using PersonManager.Views;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 using PersonManager.Models;
+using System.Collections.Generic;
 
 namespace PersonManager
 {
@@ -28,7 +29,7 @@ namespace PersonManager
             get => _entryName.Text; 
             set => _entryName.Text = value; 
         }
-
+        public List<Person> Persons { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public PersonUpdateWindow() : this(new Builder("PersonUpdateWindow.glade")) { }
 
@@ -52,7 +53,7 @@ namespace PersonManager
             person.Name = _entryName.Text;
 
             PersonPresenter presenter = new PersonPresenter(this);
-            presenter.UpdatePerson(person);
+            presenter.Save(person);
         }
     }
 }
