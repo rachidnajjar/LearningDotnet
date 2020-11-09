@@ -36,7 +36,16 @@ namespace PersonManager
 
         private void Button1_Clicked(object sender, EventArgs a)
         {
-            _counter++;
+
+            var messageDialog = new MessageDialog(this, Gtk.DialogFlags.Modal, Gtk.MessageType.Question, Gtk.ButtonsType.YesNo, "Voulez-vous incrémenter le compteur ?");
+            messageDialog.Show();
+            int response = messageDialog.Run();
+            messageDialog.Dispose();
+            if (response == (int)ResponseType.Yes) 
+            {
+                _counter++;
+            }
+
             _label1.Text = "Hello World! This button has been clicked " + _counter + " time(s).";
         }
 
