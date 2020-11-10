@@ -1,0 +1,4 @@
+Implémentation classique du model view presenter pattern
+https://jab.developpez.com/tutoriels/dotnet/mvppattern/#LII-B
+
+dotnet new gtkapp -o ClassicImplementation
