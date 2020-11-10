@@ -18,13 +18,13 @@ namespace PersonManager
         [UI]
         private Button _buttonUpdatePerson = null;
 
-        public string IdText 
+        public string PersonId 
         { 
             get => _entryId.Text; 
             set => _entryId.Text = value; 
         }
 
-        public string NameText 
+        public string PersonName 
         { 
             get => _entryName.Text; 
             set => _entryName.Text = value; 

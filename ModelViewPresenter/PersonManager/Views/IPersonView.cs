@@ -5,8 +5,8 @@ namespace PersonManager.Views
 {
     public interface IPersonView
     {
-        string IdText { get; set; }
-        string NameText { get; set; }
+        string PersonId { get; set; }
+        string PersonName { get; set; }
 
         List<Person> Persons { get; set; } 
     }

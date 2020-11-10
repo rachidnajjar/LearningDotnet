@@ -25,13 +25,13 @@ namespace PersonManager
         [UI] private TreeViewColumn _treeViewColumnPersonName = null;
         [UI] private CellRendererText _cellRendererTextPersonName = null;
 
-        public string IdText 
+        public string PersonId 
         { 
             get => _entryId.Text; 
             set => _entryId.Text = value; 
         }
 
-        public string NameText 
+        public string PersonName 
         { 
             get => _entryName.Text; 
             set => _entryName.Text = value; 
@@ -85,7 +85,7 @@ namespace PersonManager
 
         private void ButtonDelete_Clicked(object sender, EventArgs a)
         {
-            int id = int.Parse(this.IdText);
+            int id = int.Parse(this.PersonId);
             PersonPresenter presenter = new PersonPresenter(this);
             presenter.Delete(id);
 
@@ -102,8 +102,8 @@ namespace PersonManager
         private void TreeViewPersons_RowActivated(object sender, EventArgs a)
         {
             _treeSelection.GetSelected(out ITreeModel model, out TreeIter iter);
-            this.IdText = model.GetValue(iter,0).ToString();
-            this.NameText = model.GetValue(iter,1).ToString();
+            this.PersonId = model.GetValue(iter,0).ToString();
+            this.PersonName = model.GetValue(iter,1).ToString();
         }
 
         private void Retrieve()
@@ -121,8 +121,8 @@ namespace PersonManager
 
         private void Clear()
         {
-            this.IdText = string.Empty;
-            this.NameText = string.Empty;
+            this.PersonId = string.Empty;
+            this.PersonName = string.Empty;
         }
 
 

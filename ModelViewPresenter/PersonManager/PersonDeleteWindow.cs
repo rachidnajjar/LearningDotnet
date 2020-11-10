@@ -16,13 +16,13 @@ namespace PersonManager
         [UI] private Label _labelPersonName = null;
         [UI] private Button _buttonDeletePerson = null;
 
-        public string IdText 
+        public string PersonId 
         { 
             get => _labelPersonId.Text; 
             set => _labelPersonId.Text = value; 
         }
 
-        public string NameText 
+        public string PersonName 
         { 
             get => _labelPersonName.Text; 
             set => _labelPersonName.Text = value; 

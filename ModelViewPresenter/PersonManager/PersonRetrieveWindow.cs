@@ -20,13 +20,13 @@ namespace PersonManager
         [UI]
         private Button _buttonRetrievePerson = null;
 
-        public string IdText 
+        public string PersonId 
         { 
             get => _labelPersonId.Text; 
             set => _labelPersonId.Text = value; 
         }
 
-        public string NameText 
+        public string PersonName 
         { 
             get => _labelPersonName.Text; 
             set => _labelPersonName.Text = value; 

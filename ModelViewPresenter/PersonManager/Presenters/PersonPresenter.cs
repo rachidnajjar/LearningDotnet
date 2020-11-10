@@ -24,13 +24,13 @@ namespace PersonManager.Presenters
 
             if (person == null)
             {
-                _view.IdText = "-1";
-                _view.NameText = "not found";
+                _view.PersonId = "-1";
+                _view.PersonName = "not found";
             }
             else
             {
-                _view.IdText = person.Id.ToString();
-                _view.NameText = person.Name;
+                _view.PersonId = person.Id.ToString();
+                _view.PersonName = person.Name;
             }
 
         }
