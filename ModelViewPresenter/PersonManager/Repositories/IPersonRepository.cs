@@ -3,11 +3,8 @@ using PersonManager.Models;
 
 namespace PersonManager.Repositories
 {
-    public interface IPersonRepository
+    public interface IPersonRepository : IRepository<Person>
     {
-        void Save(Person person);
-        Person Retrieve(int id);
-        void Delete(int id);
-        List<Person> Retrieve();
+        IEnumerable<Person> RetrieveTop(int top);
     }
 }

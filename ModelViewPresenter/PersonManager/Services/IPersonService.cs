@@ -5,10 +5,10 @@ namespace PersonManager.Services
 {
     public interface IPersonService
     {
-        void Save(Person person);
+        void Create(Person person);
         Person Retrieve(int id);
+        void Update(Person person);
         void Delete(int id);
-        List<Person> Retrieve();
-
+        IEnumerable<Person> Retrieve();
     }
 }

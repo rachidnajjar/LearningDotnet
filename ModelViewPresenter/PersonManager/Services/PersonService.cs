@@ -6,33 +6,43 @@ namespace PersonManager.Services
 {
     public class PersonService : IPersonService
     {
-        private IPersonRepository _repository;
+        private IUnitOfWork _unitOfWork;
 
-        public PersonService(IPersonRepository repository)
+        public PersonService(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
-        public void Save(Person person)
+        public void Create(Person person)
         {
-            _repository.Save(person);
+            _unitOfWork.PersonRepository.Create(person);
+            _unitOfWork.Commit();
         }
 
 
         public Person Retrieve(int id)
         {
-            Person person = _repository.Retrieve(id);
+            Person person = _unitOfWork.PersonRepository.Retrieve(id);
             return person;
+        }
+
+        public void Update(Person person)
+        {
+            _unitOfWork.PersonRepository.Update(person);
+            _unitOfWork.Commit();
         }
 
         public void Delete(int id)
         {
-            _repository.Delete(id);
+            _unitOfWork.PersonRepository.Delete(id);
+            _unitOfWork.Commit();
+         }
+
+        public IEnumerable<Person> Retrieve()
+        {
+            return _unitOfWork.PersonRepository.Retrieve();
         }
 
-        public List<Person> Retrieve()
-        {
-            return _repository.Retrieve();
-        }
+        
     }
 }

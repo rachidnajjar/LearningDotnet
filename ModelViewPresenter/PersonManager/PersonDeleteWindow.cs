@@ -6,6 +6,8 @@ using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 using System.Collections.Generic;
 using PersonManager.Models;
+using PersonManager.Data;
+using PersonManager.Repositories;
 
 namespace PersonManager
 {
@@ -29,6 +31,8 @@ namespace PersonManager
         }
         public List<Person> Persons { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        private PersonPresenter _presenter;
+
         public PersonDeleteWindow() : this(new Builder("PersonDeleteWindow.glade")) { }
 
         private PersonDeleteWindow(Builder builder) : base(builder.GetObject("PersonDeleteWindow").Handle)
@@ -37,6 +41,11 @@ namespace PersonManager
 
             DeleteEvent += Window_DeleteEvent;
             _buttonDeletePerson.Clicked += ButtonDeletePerson_Clicked;
+
+            var applicationContext = new ApplicationContext();
+            var unitOfWork = new UnitOfWork(applicationContext);
+            var service = new PersonService(unitOfWork);
+            _presenter = new PersonPresenter(this, service);
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -47,8 +56,7 @@ namespace PersonManager
         private void ButtonDeletePerson_Clicked(object sender, EventArgs a)
         {
             int id = int.Parse(_entryId.Text);
-            PersonPresenter presenter = new PersonPresenter(this);
-            presenter.Delete(id);
+            _presenter.Delete(id);
         }
     }
 }

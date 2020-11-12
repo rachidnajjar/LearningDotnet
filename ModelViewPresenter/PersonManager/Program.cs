@@ -27,16 +27,16 @@ namespace PersonManager
             // glass.Id = 5;
             // glass.Name = "Glass";
             // personService.Create(glass);
-            // personService.Commit();
+            // personService.Save();
             // persons = personService.Retrieve();
 
             // glass.Name = "Glassex";
             // personService.Update(glass);
-            // personService.Commit();
+            // personService.Save();
             // persons = personService.Retrieve();
 
             // personService.Delete(glass.Id);
-            // personService.Commit();
+            // personService.Save();
             // persons = personService.Retrieve();
 
             var mainWindow = new MainWindow();

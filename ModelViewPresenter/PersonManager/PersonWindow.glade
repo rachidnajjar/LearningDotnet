@@ -156,8 +156,21 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="_buttonSave">
-            <property name="label" translatable="yes">Save</property>
+          <object class="GtkButton" id="_buttonClear">
+            <property name="label" translatable="yes">Clear</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="_buttonCreate">
+            <property name="label" translatable="yes">Create</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">True</property>
@@ -169,16 +182,16 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="_buttonClear">
-            <property name="label" translatable="yes">Clear</property>
+          <object class="GtkButton" id="_buttonUpdate">
+            <property name="label" translatable="yes">Update</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
             <property name="receives_default">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">6</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>

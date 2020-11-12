@@ -1,13 +1,14 @@
+using System;
 using PersonManager.Models;
 
 namespace PersonManager.Repositories
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
-        IRepository<Person> PersonRepository { get; }
+        IPersonRepository PersonRepository { get; }
 
         // IRepository<Phone> PhoneRepository { get; }
 
-        void Commit();
+        int Commit();
     }
 }

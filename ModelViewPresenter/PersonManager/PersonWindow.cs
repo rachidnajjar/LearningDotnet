@@ -6,6 +6,8 @@ using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 using PersonManager.Models;
 using System.Collections.Generic;
+using PersonManager.Data;
+using PersonManager.Repositories;
 
 namespace PersonManager
 {
@@ -14,8 +16,9 @@ namespace PersonManager
         [UI] private Entry _entryId = null;
         [UI] private Entry _entryName = null;
         [UI] private Button _buttonRetrieve = null;
-        [UI] private Button _buttonSave = null;
         [UI] private Button _buttonClear = null;
+        [UI] private Button _buttonCreate = null;
+        [UI] private Button _buttonUpdate = null;
         [UI] private Button _buttonDelete = null;
         [UI] private TreeView _treeViewPersons = null;
         [UI] private TreeStore _treeStorePerson = null;
@@ -42,6 +45,8 @@ namespace PersonManager
             set; 
         }
 
+        private PersonPresenter _presenter;
+
         public PersonWindow() : this(new Builder("PersonWindow.glade")) { }
 
         private PersonWindow(Builder builder) : base(builder.GetObject("PersonWindow").Handle)
@@ -50,8 +55,9 @@ namespace PersonManager
 
             DeleteEvent += Window_DeleteEvent;
             _buttonRetrieve.Clicked += ButtonRetrieve_Clicked;
-            _buttonSave.Clicked += ButtonSave_Clicked;
             _buttonClear.Clicked += ButtonClear_Clicked;
+            _buttonCreate.Clicked += ButtonCreate_Clicked;
+            _buttonUpdate.Clicked += ButtonUpdate_Clicked;
             _buttonDelete.Clicked += ButtonDelete_Clicked;
             _treeViewPersons.RowActivated += TreeViewPersons_RowActivated;
 
@@ -59,6 +65,11 @@ namespace PersonManager
             _treeViewColumnPersonId.AddAttribute (_cellRendererTextPersonId, "text", 0);
             _treeViewColumnPersonName.AddAttribute (_cellRendererTextPersonName, "text", 1);
             _treeViewPersons.Model = _treeStorePerson;
+
+            var applicationContext = new ApplicationContext();
+            var unitOfWork = new UnitOfWork(applicationContext);
+            var service = new PersonService(unitOfWork);
+            _presenter = new PersonPresenter(this, service);
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -66,28 +77,37 @@ namespace PersonManager
             this.Hide();
         }
 
-        private void ButtonSave_Clicked(object sender, EventArgs a)
-        {
-            Person person = new Person();
-            person.Id = int.Parse(_entryId.Text);
-            person.Name = _entryName.Text;
-
-            PersonPresenter presenter = new PersonPresenter(this);
-            presenter.Save(person);
-
-            Retrieve();
-        }
-
         private void ButtonClear_Clicked(object sender, EventArgs a)
         {
             Clear();
         }
 
+        private void ButtonCreate_Clicked(object sender, EventArgs a)
+        {
+            Person person = new Person();
+            person.Id = int.Parse(_entryId.Text);
+            person.Name = _entryName.Text;
+
+            _presenter.Create(person);
+
+            Retrieve();
+        }
+
+        private void ButtonUpdate_Clicked(object sender, EventArgs a)
+        {
+            int id = int.Parse(_entryId.Text);
+            Person person = this.Persons.Find(p => p.Id == id);
+            person.Name = _entryName.Text;
+
+            _presenter.Update(person);
+
+            Retrieve();
+        }
+
         private void ButtonDelete_Clicked(object sender, EventArgs a)
         {
             int id = int.Parse(this.PersonId);
-            PersonPresenter presenter = new PersonPresenter(this);
-            presenter.Delete(id);
+            _presenter.Delete(id);
 
             Retrieve();
             Clear();
@@ -108,8 +128,7 @@ namespace PersonManager
 
         private void Retrieve()
         {
-            PersonPresenter presenter = new PersonPresenter(this);
-            presenter.Retrieve();
+            _presenter.Retrieve();
 
             _treeStorePerson.Clear();
             foreach (var person in this.Persons)

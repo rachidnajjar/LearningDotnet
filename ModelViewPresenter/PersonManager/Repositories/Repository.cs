@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using PersonManager.Data;
 using PersonManager.Models;
@@ -8,51 +10,86 @@ namespace PersonManager.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Model
     {
-        private ApplicationContext _context;
+        protected ApplicationContext _context;
 
-        private DbSet<T> _dbSet;
+        protected DbSet<T> _entities;
 
         public Repository(ApplicationContext context)
         {
             _context = context;
-            _dbSet = _context.Set<T>();
+            _entities = _context.Set<T>();
         }
 
-        public void Delete(int id)
+        public void Create(T entity)
         {
-            T model = _dbSet.Find(id);
-            Delete(model);
+            _entities.Add(entity);
         }
 
-        private void Delete(T model)
+        public void Create(IEnumerable<T> entities)
         {
-            if (_context.Entry(model).State == EntityState.Detached)
-            {
-                _dbSet.Attach(model);
-            }
-            _dbSet.Remove(model);
+            _entities.AddRange(entities);
         }
 
         public T Retrieve(int id)
         {
-            return _dbSet.Find(id);
+            return _entities.Find(id);
         }
 
         public IEnumerable<T> Retrieve()
         {
-            return _dbSet.ToList();
+            return _entities.ToList();
         }
 
-        public void Create(T model)
+        public IEnumerable<T> Retrieve(Expression<Func<T, bool>> predicate)
         {
-            _dbSet.Add(model);
+            return _entities.Where(predicate);
         }
 
-        public void Update(T model)
+        public void Update(T entity)
         {
-            _dbSet.Attach(model);
-            _context.Entry(model).State = EntityState.Modified;
+            Attach(entity);
+            // _context.Entry(entity).State = EntityState.Modified;
+            _entities.Update(entity);
         }
 
+        public void Update(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                Attach(entity);
+            }
+
+            _entities.UpdateRange(entities);
+        }
+
+        public void Delete(int id)
+        {
+            T entity = _entities.Find(id);
+            Delete(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            Attach(entity);
+            _entities.Remove(entity);
+        }
+
+        public void Delete(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                Attach(entity);
+            }
+
+            _entities.RemoveRange(entities);
+        }
+
+        private void Attach(T entity)
+        {
+            if (_context.Entry(entity).State == EntityState.Detached)
+            {
+                _entities.Attach(entity);
+            }
+        }
     }
 }

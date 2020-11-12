@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using PersonManager.Models;
 using PersonManager.Repositories;
 using PersonManager.Services;
@@ -9,18 +10,24 @@ namespace PersonManager.Presenters
     public class PersonPresenter
     {
         private IPersonView _view;
+        private IPersonService _service;
 
 
-        public PersonPresenter(IPersonView view)
+        public PersonPresenter(IPersonView view, IPersonService service)
         {
             _view = view;
+            _service = service;
+        }
+
+
+        public void Create(Person person)
+        {
+            _service.Create(person);
         }
 
         public void Retrieve(int id)
         {
-            var repository = new PersonRepository();
-            var service = new PersonService(repository);
-            Person person = service.Retrieve(id);
+            Person person = _service.Retrieve(id);
 
             if (person == null)
             {
@@ -35,25 +42,19 @@ namespace PersonManager.Presenters
 
         }
 
-        public void Save(Person person)
+        public void Retrieve()
         {
-            var repository = new PersonRepository();
-            var service = new PersonService(repository);
-            service.Save(person);
+            _view.Persons = _service.Retrieve().ToList();
+        }
+
+        public void Update(Person person)
+        {
+            _service.Update(person);
         }
 
         public void Delete(int id)
         {
-            var repository = new PersonRepository();
-            var service = new PersonService(repository);
-            service.Delete(id);
-        }
-
-        public void Retrieve()
-        {
-            var repository = new PersonRepository();
-            var service = new PersonService(repository);
-            _view.Persons = service.Retrieve();
+            _service.Delete(id);
         }
 
     }

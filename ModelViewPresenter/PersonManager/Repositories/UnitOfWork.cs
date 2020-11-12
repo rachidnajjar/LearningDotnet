@@ -7,42 +7,29 @@ namespace PersonManager.Repositories
     {
         private ApplicationContext _context;
 
-        private Repository<Person> _personRepository;
+        private IPersonRepository _personRepository;
+        public IPersonRepository PersonRepository 
+        { 
+            get { return _personRepository; } 
+        }
 
-        // private Repository<Phone> _phoneRepository;
 
         public UnitOfWork(ApplicationContext context)
         {
             _context = context;
+            _personRepository = new PersonRepository(_context);
         }
 
-        public IRepository<Person> PersonRepository
+        public int Commit()
         {
-            get
-            {
-                if (_personRepository == null)
-                    _personRepository = new Repository<Person>(_context);
-                
-                return _personRepository;
-            }
+            return _context.SaveChanges();
         }
 
-
-        // public IRepository<Phone> PhoneRepository
-        // {
-        //     get
-        //     {
-        //         if (_phoneRepository == null)
-        //             _phoneRepository = new Repository<Phone>(_context);
-                
-        //         return _phoneRepository;
-        //     }
-        // }
-
-
-        public void Commit()
+        public void Dispose()
         {
-            _context.SaveChanges();
+            _context.Dispose();
         }
+
+        
     }
 }
